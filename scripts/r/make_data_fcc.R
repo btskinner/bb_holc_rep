@@ -16,7 +16,7 @@ sapply(libs, require, character.only = TRUE)
 args <- commandArgs(trailingOnly = TRUE)
 root <- ifelse(length(args) == 0, file.path("..", ".."), args)
 dat_dir <- file.path(root, "data")
-bbd_dir <- file.path(dat_dir, "broadband")
+bbd_dir <- file.path(dat_dir, "fcc")
 cln_dir <- file.path(dat_dir, "clean")
 
 ## -----------------------------------------------------------------------------
