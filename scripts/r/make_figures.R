@@ -27,10 +27,6 @@ source(file.path(scr_dir, "functions.R"))
 ## macros
 source(file.path(scr_dir, "macros.R"))
 
-## font
-## NB: https://medium.com/@fulowa/latex-font-in-a-ggplot-9120caaa5250
-font_family <- "LM Roman 10"
-
 ## -----------------------------------------------------------------------------
 ## read in data
 ## -----------------------------------------------------------------------------
@@ -60,7 +56,7 @@ p <- ggplot(st_as_sf(maps::map("state", fill = TRUE, plot = FALSE)) %>%
                 st_centroid(),
             size = 0.75) +
     coord_sf(datum = st_crs(common_crs)) +
-    theme_map(base_family = font_family)
+    theme_map()
 
 ## save
 ggsave("holc_national_map.pdf",
@@ -90,8 +86,7 @@ p1 <- ggplot(df_bg_evv) +
              xlim = c(lims[1], lims[3]),
              ylim = c(lims[2], lims[4])) +
     labs(title = "(A) Census block groups") +
-    theme_map(base_size = 8,
-              base_family = font_family)
+    theme_map(base_size = 8)
 
 ## plot 2: HOLC areas for Evansville, IN
 p2 <- ggplot(df_holc %>% filter(city == "Evansville")) +
@@ -102,8 +97,7 @@ p2 <- ggplot(df_holc %>% filter(city == "Evansville")) +
              xlim = c(lims[1], lims[3]),
              ylim = c(lims[2], lims[4])) +
     labs(title = "(B) HOLC neighborhoods") +
-    theme_map(base_size = 8,
-              base_family = font_family)
+    theme_map(base_size = 8)
 
 ## plot 3: show overlap
 p3 <- ggplot() +
@@ -120,8 +114,7 @@ p3 <- ggplot() +
              xlim = c(lims[1], lims[3]),
              ylim = c(lims[2], lims[4])) +
     labs(title = "(C) Overlap of census block groups and HOLC areas") +
-    theme_map(base_size = 8,
-              base_family = font_family)
+    theme_map(base_size = 8)
 
 ## plot 4: show block group parts inside HOLC areas
 p4 <- ggplot(df_holc %>% filter(city == "Evansville")) +
@@ -134,15 +127,12 @@ p4 <- ggplot(df_holc %>% filter(city == "Evansville")) +
              xlim = c(lims[1], lims[3]),
              ylim = c(lims[2], lims[4])) +
     labs(title = "(D) Census block group portions inside HOLC neighborhoods") +
-    theme_map(base_size = 8,
-              base_family = font_family)
+    theme_map(base_size = 8)
 
 
 ## use patchwork library to arrange four plots into grid
 p <- (p1 | p2) / (p3 | p4) +
     plot_annotation(
-        ## title = "Census block groups and HOLC maps for Evansville, IN",
-        ## caption = "Data: ACS; Mapping Inequality Project",
         theme = theme(plot.title = element_text(size = 12, family = font_family))
     )
 
@@ -224,7 +214,7 @@ g <- ggplot(preds,
                  limits = as.Date(c("2014-12-01", "2019-06-01"))) +
     labs(x = "",
          y = "Posterior prediction of population with access") +
-    theme_bw(base_family = font_family) +
+    theme_bw() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ## save
@@ -250,7 +240,7 @@ g <- ggplot(preds,
                  limits = as.Date(c("2014-12-01", "2019-06-01"))) +
     labs(x = "",
          y = "Posterior prediction of population with access") +
-    theme_bw(base_family = font_family) +
+    theme_bw() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ## save
@@ -306,7 +296,6 @@ preds_ov <- preds %>%
 g <- ggplot(preds_ov,
             aes(x = val, fill = var)) +
     geom_density(aes(y = ..scaled..), alpha = 0.7) +
-    ## geom_hline(yintercept = 0, colour = "grey") +
     scale_fill_manual("HOLC",
                       values = holc_vals) +
     scale_x_continuous(breaks = seq(.86,.94,.01),
@@ -316,7 +305,7 @@ g <- ggplot(preds_ov,
                        expand = c(0,0)) +
     labs(x = "Percentage",
          y = "Overall household proportions (density)") +
-    theme_bw(base_family = font_family) +
+    theme_bw() +
     theme(panel.grid.major.y = element_blank(),
           panel.grid.minor.y = element_blank(),
           axis.ticks.y = element_blank(),
@@ -389,7 +378,7 @@ g <- ggplot(preds_ci_re,
                        limits = c(.85,1)) +
     labs(y = "Percentage",
          x = "Race/ethnicity") +
-    theme_bw(base_family = font_family) +
+    theme_bw() +
     theme(panel.grid.major.y = element_blank(),
           axis.text.x = element_text(angle = 45, hjust = 1))
 
@@ -434,7 +423,7 @@ g <- ggplot(preds_ci_in,
                        limits = c(.5,1)) +
      labs(y = "Percentage",
           x = "Income") +
-    theme_bw(base_family = font_family) +
+    theme_bw() +
     theme(panel.grid.major.y = element_blank(),
           axis.text.x = element_text(angle = 45, hjust = 1))
 
@@ -582,7 +571,7 @@ g <- ggplot(df, aes(x = group_, y = pct, fill = holc_grade)) +
     scale_y_continuous(limits = c(0,50)) +
     labs(y = "Percentage in HOLC zone",
          x = "") +
-    theme_bw(base_family = font_family) +
+    theme_bw() +
     theme(panel.grid.major.x = element_blank())
 
 ## save
@@ -608,7 +597,7 @@ g <- ggplot(df %>% mutate(total_zone = total_zone / 1000),
                        limits = c(0,6200)) +
     labs(y = "Number (1000s) in HOLC zone",
          x = "") +
-    theme_bw(base_family = font_family) +
+    theme_bw() +
     theme(panel.grid.major.x = element_blank())
 
 ggsave("sample_dist_bar_count.pdf",

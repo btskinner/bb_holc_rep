@@ -33,7 +33,10 @@ doc_output := $(DOC_DIR)/figtab.pdf
 
 all: setup data analysis figures tables docs 
 
-data: $(analysis_data)
+
+acs_data: $(analysis_acs_data)
+fcc_data: $(analysis_fcc_data)
+data: acs_data fcc_data 
 analysis: $(est_output) $(prd_output)
 figures: $(fig_output)
 tables: $(tab_output)

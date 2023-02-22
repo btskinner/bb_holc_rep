@@ -151,15 +151,6 @@ get_seq <- function(year,
     dt <- rbindlist(dt_list)
 
     ## -----------------------
-    ## new column names
-    ## -----------------------
-
-    ## new column names to add sequence number to "v#" columns
-    ## colnames(dt) <- str_replace_all(colnames(dt),
-    ##                                 "^(v[0-9]+)(_moe)?$",
-    ##                                 paste0("s", seq_num, "_", "\\1\\2"))
-
-    ## -----------------------
     ## keep names in list
     ## -----------------------
 
@@ -242,11 +233,9 @@ get_seq <- function(year,
 ## -----------------------------------------------------------------------------
 
 ## state abbreviations, lowered
-stabbrs <- crosswalkr::stcrosswalk %>% pull(stabbr) %>% tolower
+stabbrs <- stcrosswalk %>% pull(stabbr) %>% tolower
 
 ## years / sequence number files
-## NB: the sequence file number changes over the years, so we use this
-## faux tuple structure to pull the correct file for the correct year
 year_seq <- list(c("2015_2019", 135))
 
 ## summary levels

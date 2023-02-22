@@ -15,7 +15,6 @@ scr_dir <- file.path(root, "scripts", "r")
 
 ## packages required for this project
 req_packages <- c("tidyverse",
-                  "extrafont",
                   "rstan",
                   "data.table",
                   "readxl",
@@ -27,7 +26,6 @@ req_packages <- c("tidyverse",
                   "ggthemes",
                   "lubridate",
                   "xtable",
-                  "purrr",
                   "devtools")
 
 ## packages that are not installed
@@ -50,13 +48,6 @@ if (!("cmdstanr" %in% installed.packages()[,"Package"])) {
                                getOption("repos")))
     ## install cmdstan under the hood
     cmdstanr::install_cmdstan(cores = getOption("mc.cores", 2))
-}
-
-## make sure we import fonts for figures
-have_times_font <- grepl("Times", extrafont::fonts())
-if (length(have_times_font) == 0 || !have_times_font) {
-    message("Importing Times typeface for paper graphics")
-    extrafont::font_import(prompt = FALSE, pattern = "Times")
 }
 
 ## -----------------------------------------------------------------------------
