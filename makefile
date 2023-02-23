@@ -19,6 +19,9 @@ TAB_DIR := tables
 # --- variables ----------------------------------
 
 # data vars
+init_acs_data := $(DAT_DIR)/clean/acs_2015_2019_seq_135_sumlvl_140_us.RDS
+init_fcc_data := $(DAT_DIR)/clean/broadband_bg.RDS
+init_geo_data := $(DAT_DIR)/clean/sf_tr_holc.RDS
 analysis_acs_data := $(DAT_DIR)/clean/holc_acs_analysis.RDS
 analysis_fcc_data := $(DAT_DIR)/clean/holc_fcc_analysis.RDS
 
@@ -33,11 +36,17 @@ doc_output := $(DOC_DIR)/figtab.pdf
 
 all: setup data analysis figures tables docs 
 
-
-acs_data: $(analysis_acs_data)
-fcc_data: $(analysis_fcc_data)
-data: acs_data fcc_data 
-analysis: $(est_output) $(prd_output)
+acs_data_init: $(init_acs_data)
+fcc_data_init: $(init_fcc_data)
+acs_data_clean: $(analysis_acs_data)
+fcc_data_clean: $(analysis_fcc_data)
+geo_data: $(init_geo_data)
+acs_data: acs_data_init acs_data_clean
+fcc_data: fcc_data_init fcc_data_clean
+data: acs_data fcc_data geo_data
+acs_analysis: $(acs_output)
+fcc_analysis: $(fcc_output)
+analysis: acs_analysis fcc_analysis
 figures: $(fig_output)
 tables: $(tab_output)
 docs: $(doc_output)
@@ -52,12 +61,24 @@ setup:
 
 # --- make data ----------------------------------
 
-$(analysis_acs_data): $(SCR_DIR)/r/make_data_acs.R
-	@echo "Making ACS analysis data"
+$(init_acs_data): $(SCR_DIR)/r/make_data_acs.R
+	@echo "Initializing ACS analysis data"
 	Rscript $< .
 
-$(analysis_fcc_data): $(SCR_DIR)/r/make_data_fcc.R
-	@echo "Making FCC analysis data"
+$(init_fcc_data): $(SCR_DIR)/r/make_data_fcc.R
+	@echo "Initializing FCC analysis data"
+	Rscript $< .
+
+$(init_geo_data): $(SCR_DIR)/r/make_data_geo.R $(init_acs_data) $(init_fcc_data)
+	@echo "Initializing geography analysis data"
+	Rscript $< .
+
+$(analysis_acs_data): $(SCR_DIR)/r/clean_data_acs.R $(init_acs_data) $(init_geo_data)
+	@echo "Cleaning ACS analysis data"
+	Rscript $< .
+
+$(analysis_fcc_data): $(SCR_DIR)/r/clean_data_fcc.R $(int_fcc_data) $(init_geo_data)
+	@echo "Cleaning FCC analysis data"
 	Rscript $< .
 
 # --- analysis -----------------------------------

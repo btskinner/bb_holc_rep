@@ -16,11 +16,11 @@ data {
   int<lower=1> N;	 // # obs
   int<lower=1> K_zone;   // # unique HOLC zones
   vector[N] y;
-  int region[N];         // vars
-  int state[N];
-  int city[N];
-  int period[N];
-  int zone[N];	   
+  array[N] int region;         // vars
+  array[N] int state;
+  array[N] int city;
+  array[N] int period;
+  array[N] int zone;	   
 }
 transformed data {
   vector[N] y_adj;

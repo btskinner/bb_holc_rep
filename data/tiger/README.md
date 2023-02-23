@@ -1,0 +1,131 @@
+# TIGER/Shapeline files
+
+TIGER/Shapeline files should include the following subdirectories (one
+blockgroup and one tract set for each state). They can be downloaded
+and unzipped from files available at:
+
+[http://ftp2.census.gov/geo/tiger/TIGER2019/TRACT/*]()
+[http://ftp2.census.gov/geo/tiger/TIGER2019/BG/*]()
+
+```
+tl_2019_01_bg
+tl_2019_01_tract
+tl_2019_02_bg
+tl_2019_02_tract
+tl_2019_04_bg
+tl_2019_04_tract
+tl_2019_05_bg
+tl_2019_05_tract
+tl_2019_06_bg
+tl_2019_06_tract
+tl_2019_08_bg
+tl_2019_08_tract
+tl_2019_09_bg
+tl_2019_09_tract
+tl_2019_10_bg
+tl_2019_10_tract
+tl_2019_11_bg
+tl_2019_11_tract
+tl_2019_12_bg
+tl_2019_12_tract
+tl_2019_13_bg
+tl_2019_13_tract
+tl_2019_15_bg
+tl_2019_15_tract
+tl_2019_16_bg
+tl_2019_16_tract
+tl_2019_17_bg
+tl_2019_17_tract
+tl_2019_18_bg
+tl_2019_18_tract
+tl_2019_19_bg
+tl_2019_19_tract
+tl_2019_20_bg
+tl_2019_20_tract
+tl_2019_21_bg
+tl_2019_21_tract
+tl_2019_22_bg
+tl_2019_22_tract
+tl_2019_23_bg
+tl_2019_23_tract
+tl_2019_24_bg
+tl_2019_24_tract
+tl_2019_25_bg
+tl_2019_25_tract
+tl_2019_26_bg
+tl_2019_26_tract
+tl_2019_27_bg
+tl_2019_27_tract
+tl_2019_28_bg
+tl_2019_28_tract
+tl_2019_29_bg
+tl_2019_29_tract
+tl_2019_30_bg
+tl_2019_30_tract
+tl_2019_31_bg
+tl_2019_31_tract
+tl_2019_32_bg
+tl_2019_32_tract
+tl_2019_33_bg
+tl_2019_33_tract
+tl_2019_34_bg
+tl_2019_34_tract
+tl_2019_35_bg
+tl_2019_35_tract
+tl_2019_36_bg
+tl_2019_36_tract
+tl_2019_37_bg
+tl_2019_37_tract
+tl_2019_38_bg
+tl_2019_38_tract
+tl_2019_39_bg
+tl_2019_39_tract
+tl_2019_40_bg
+tl_2019_40_tract
+tl_2019_41_bg
+tl_2019_41_tract
+tl_2019_42_bg
+tl_2019_42_tract
+tl_2019_44_bg
+tl_2019_44_tract
+tl_2019_45_bg
+tl_2019_45_tract
+tl_2019_46_bg
+tl_2019_46_tract
+tl_2019_47_bg
+tl_2019_47_tract
+tl_2019_48_bg
+tl_2019_48_tract
+tl_2019_49_bg
+tl_2019_49_tract
+tl_2019_50_bg
+tl_2019_50_tract
+tl_2019_51_bg
+tl_2019_51_tract
+tl_2019_53_bg
+tl_2019_53_tract
+tl_2019_54_bg
+tl_2019_54_tract
+tl_2019_55_bg
+tl_2019_55_tract
+tl_2019_56_bg
+tl_2019_56_tract
+tl_2019_60_tract
+tl_2019_66_tract
+tl_2019_69_tract
+tl_2019_72_tract
+tl_2019_78_tract
+```
+
+Within each file, you should have few files. For example,
+
+```
+tl_2019_01_bg/
+    |__tl_2019_01_bg.cpg
+    |__tl_2019_01_bg.dbf
+    |__tl_2019_01_bg.prj
+    |__tl_2019_01_bg.shp
+    |__tl_2019_01_bg.shp.ea.iso.xml
+    |__tl_2019_01_bg.shp.iso.xml
+    |__tl_2019_01_bg.shx
+```

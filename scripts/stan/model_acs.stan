@@ -14,12 +14,12 @@ data {
   int<lower=1> P;        // # cities
   int<lower=1> N;	 // # obs
   int<lower=1> K_zone;   // # unique HOLC zones
-  int y[N];
-  int total[N];
-  int region[N];         // vars
-  int state[N];
-  int city[N];
-  int zone[N];	   
+  array[N] int y;
+  array[N] int total;
+  array[N] int region;         // vars
+  array[N] int state;
+  array[N] int city;
+  array[N] int zone;	   
 }
 parameters {
   // intercepts: overall, region, state, city
