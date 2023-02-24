@@ -9,7 +9,6 @@ US-Fixed-with-Satellite-Dec2015.zip
 US-Fixed-with-satellite-Dec2016.zip
 US-Fixed-with-satellite-Dec2017.zip
 US-Fixed-with-Satellite-Dec2018.zip
-US-Fixed-with-Satellite-Dec2019.zip
 US-Fixed-with-Satellite-Jun2015.zip
 US-Fixed-with-Satellite-Jun2016.zip
 US-Fixed-with-Satellite-Jun2017.zip
