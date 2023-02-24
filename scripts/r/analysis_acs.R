@@ -132,7 +132,7 @@ names(df_list) <- nums
 ## -----------------------------------------------------------------------------
 
 ## walk through each pair of num/den
-for (i in 1:length(df_list[1])) {
+for (i in 1:length(df_list)) {
     ## fit
     fit <- mod$sample(df_list[[i]],
                       seed = stan_seed,
