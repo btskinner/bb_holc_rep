@@ -1,6 +1,7 @@
 # .gitignore
 
 .DS_Store
+.Rhistory
 
 # ignore data and estimates except for README files
 data/*
