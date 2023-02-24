@@ -17,9 +17,19 @@ cd ./bb_holc_rep
 make
 ```
 
-Or, after cloning the repository, run the R scripts one by one:
+Or, after cloning the repository, `cd` into the `./scripts/r`
+directory, and run the R scripts one by one in the following order:
 
-
+1. `check_packages.R`
+1. `make_data_acs.R`
+1. `make_data_fcc.R`
+1. `make_data_geo.R`
+1. `clean_data_acs.R`
+1. `clean_data_fcc.R`
+1. `analysis_acs.R`
+1. `analysis_fcc.R`
+1. `make_figures.R`
+1. `make_tables.R`
 
 Figures and tables found in the final paper can be built from
 `figtab.md` after completing all scripts and running from the `docs`
