@@ -2,10 +2,10 @@
 
 TIGER/Shapeline files should include the following subdirectories (one
 blockgroup and one tract set for each state). They can be downloaded
-and unzipped from files available at:
+and unzipped from files available via FTP:
 
-[http://ftp2.census.gov/geo/tiger/TIGER2019/TRACT/*]()
-[http://ftp2.census.gov/geo/tiger/TIGER2019/BG/*]()
+- [](ftp://ftp2.census.gov/geo/tiger/TIGER2019/TRACT/)
+- [](ftp://ftp2.census.gov/geo/tiger/TIGER2019/BG/)
 
 ```
 tl_2019_01_bg
