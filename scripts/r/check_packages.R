@@ -26,7 +26,8 @@ req_packages <- c("tidyverse",
                   "ggthemes",
                   "lubridate",
                   "xtable",
-                  "devtools")
+                  "devtools",
+                  "maps")
 
 ## packages that are not installed
 mask <- (req_packages %in% installed.packages()[,"Package"])
