@@ -3,7 +3,7 @@
 The following ACS data files are required. They may be downloaded from
 the Census server:
 
-[http://ftp2.census.gov/programs-surveys/acs/summary_file/2019/data/5_year_by_state/]()
+- [ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2019/data/5_year_by_state/](ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2019/data/5_year_by_state/)
 
 ```
 Alabama_Tracts_Block_Groups_Only.zip
@@ -63,7 +63,7 @@ Wyoming_Tracts_Block_Groups_Only.zip
 
 The header file can be found and unzipped from:
 
-[http://ftp2.census.gov/programs-surveys/acs/summary_file/2019/data/2019_5yr_Summary_FileTemplates.zip]()
+- [ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2019/data/2019_5yr_Summary_FileTemplates.zip](ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2019/data/2019_5yr_Summary_FileTemplates.zip)
 
 ```
 2019_5yr_Summary_FileTemplates
@@ -71,8 +71,7 @@ The header file can be found and unzipped from:
 
 The following geography files are needed. They may be downloaded from:
 
-[http://ftp2.census.gov/programs-surveys/acs/summary_file/2019/documentation/geography/5yr_year_geo]()
-
+- [ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2019/documentation/geography/5yr_year_geo](ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2019/documentation/geography/5yr_year_geo)
 
 ```
 ak.xlsx
