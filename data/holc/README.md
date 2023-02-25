@@ -7,11 +7,15 @@ Robert K. Nelson, LaDale Winling, Richard Marciano, Nathan Connolly,
 et al., “Mapping Inequality,” _American Panorama_, ed. Robert K. Nelson
 and Edward L. Ayers.
 
-For the shapefiles, unzip the file downloaded from the following link:
+For the shapefiles, unzip the file. `fullshpfile.zip`, downloaded from
+the following link:
 
-[https://dsl.richmond.edu/panorama/redlining/static/fullshpfile.zip]()
+1. [https://dsl.richmond.edu/panorama/redlining/](https://dsl.richmond.edu/panorama/redlining/)
+1. Click on "Downloads & Data" link at top of page
+1. Click on Shapefile box
 
-You will need the following files in the directory:
+After you unzip the file, you will need to move the following files
+into the `./data/holc` directory:
 
 ```
 holc_ad_data.cpg
