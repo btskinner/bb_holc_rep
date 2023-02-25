@@ -14,7 +14,6 @@ DAT_DIR := data
 DOC_DIR := docs
 FIG_DIR := figures
 SCR_DIR := scripts
-TAB_DIR := tables
 
 # --- variables ----------------------------------
 
@@ -29,12 +28,11 @@ analysis_fcc_data := $(DAT_DIR)/clean/holc_fcc_analysis.RDS
 acs_output := $(DAT_DIR)/clean/predictions_acs.RDS
 fcc_output := $(DAT_DIR)/clean/predictions_fcc.RDS
 fig_output := $(FIG_DIR)/inc_cbb_line.pdf
-tab_output := $(TAB_DIR)/desc.tex
-doc_output := $(DOC_DIR)/figtab.pdf
+doc_output := figtab.pdf
 
 # --- build targets ------------------------------
 
-all: setup data analysis figures tables docs 
+all: setup data analysis figures docs 
 
 acs_data_init: $(init_acs_data)
 fcc_data_init: $(init_fcc_data)
@@ -48,10 +46,9 @@ acs_analysis: $(acs_output)
 fcc_analysis: $(fcc_output)
 analysis: acs_analysis fcc_analysis
 figures: $(fig_output)
-tables: $(tab_output)
 docs: $(doc_output)
 
-.PHONY: all setup data analysis figures tables docs
+.PHONY: all setup data analysis figures docs
 
 # --- packages -----------------------------------
 
@@ -97,21 +94,15 @@ $(fig_output): $(SCR_DIR)/r/make_figures.R $(acs_output) $(fcc_output)
 	@echo "Making figures"
 	Rscript $< .
 
-$(tab_output): $(SCR_DIR)/r/make_tables.R $(acs_output) $(fcc_output)
-	@echo "Making tables"	
-	Rscript $< .
+# --- docs ---------------------------------------
 
-# --- tab_fig ------------------------------------
-
-# $(doc_figtab_output): $(fig_output) $(tab_output)
-# 	@echo "Compiling figures and tables document"
-# 	cd docs && pandoc $(@:.pdf=.md) \
-# 		--read=markdown \
-# 		--write=latex \
-# 		--output=$@ \
-# 		--filter=pandoc-crossref \
-# 		--lua-filter=linebreaks.lua \
-# 		--resource-path=..:figures
+$(doc_output): 
+	@echo "Compiling figures document"
+	cd docs && pandoc $(@:.pdf=.md) \
+		--read=markdown \
+		--write=latex \
+		--output=$@ \
+		--resource-path=..:../figures
 
 # ------------------------------------------------------------------------------
 # end makefile

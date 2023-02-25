@@ -29,18 +29,15 @@ directory, and run the R scripts one by one in the following order:
 1. `analysis_acs.R`
 1. `analysis_fcc.R`
 1. `make_figures.R`
-1. `make_tables.R`
 
 Figures and tables found in the final paper can be built from
 `figtab.md` after completing all scripts and running from the `docs`
 directory:
 
 ``` sh
-pandoc figtab.md \
+pandoc figures.md \
 --read=markdown \
 --write=latex \
---output=./figtab.pdf \
---filter=pandoc-crossref \
---citeproc \
---lua-filter=linebreaks.lua
+--output=./figures.pdf \
+--resource-path=..:../figures 
 ```
