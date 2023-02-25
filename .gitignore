@@ -3,7 +3,7 @@
 .DS_Store
 .Rhistory
 
-# ignore data and estimates except for README files
+# ignore data, estimates, figures, and tables except for README files
 data/*
 !data/acs/README.md
 !data/clean/README.md
@@ -12,6 +12,10 @@ data/*
 !data/tiger/README.md
 estimates/*
 !estimates/README.md
+figures/*
+!figures/README.md
+tables/*
+tables/README.md
 
 # ignore compilied Stan models
 scripts/stan/*
