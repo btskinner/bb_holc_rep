@@ -35,20 +35,20 @@ miss_packages <- req_packages[!mask]
 
 ## install any missing
 if (length(miss_packages)) {
-    message("Installing missing packages")
-    install.packages(miss_packages)
+  message("Installing missing packages")
+  install.packages(miss_packages)
 } else {
-    message("All required packages found")
+  message("All required packages found")
 }
 
 ## check for cmdstanr
 if (!("cmdstanr" %in% installed.packages()[,"Package"])) {
-    ## install cmdstanr
-    install.packages("cmdstanr",
-                     repos = c("https://mc-stan.org/r-packages/",
-                               getOption("repos")))
-    ## install cmdstan under the hood
-    cmdstanr::install_cmdstan(cores = getOption("mc.cores", 2))
+  ## install cmdstanr
+  install.packages("cmdstanr",
+                   repos = c("https://mc-stan.org/r-packages/",
+                             getOption("repos")))
+  ## install cmdstan under the hood
+  cmdstanr::install_cmdstan(cores = getOption("mc.cores", 2))
 }
 
 ## -----------------------------------------------------------------------------
